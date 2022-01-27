@@ -4,7 +4,7 @@ class Vista{
 	private Scanner scan = new Scanner(System.in);
 
 	/**
-	 * Método para mostrar el menu del radio apagado
+	 * Método para mostra1r el menu del radio apagado
 	 * 
 	 * @return la opcion del usuario
 	 */
@@ -59,6 +59,31 @@ class Vista{
 		}
 	}
 
+	/**
+	 * Para cambiar el tipo de emisora
+	 * @return entero entre 1 y 2
+	 */
+	public int cambiarEmisora(){
+		System.out.println("Selecione una opcion");
+		System.out.println("1. Cambiar a AM");
+		System.out.println("2. Cambiar a FM");
+
+		while(true){
+			try{
+				while(true){
+					int num = scan.nextInt();
+					if(num > 0 && num < 3){
+						return num;
+					} else{
+						System.out.println("Ingrese una opcion valida");
+					}
+				}
+			} catch(Exception e){
+				System.out.println("Ingrese un numero");
+				scan.next();
+			}
+		}
+	}
 	/**
 	 * Pide el ingreso de una frecuencia AM
 	 * 

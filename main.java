@@ -4,7 +4,7 @@ public class main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+		controlador controlador = new controlador();
 		Vista v = new Vista();
 		int menu = 0;
 
@@ -21,13 +21,17 @@ public class main {
 				case 1: //Encender
 					menu = 0;
 					while(menu != 5){
-
-						//mostrar aquí lo de v.mostrarEstado() maybe???
-
+								
+						controlador.encenderApagar();
+							if(controlador.comprobarEncendida()==true){
+								System.out.println("La radio ya se encuentra encendida");	
+						
 						menu = v.menuEncendido();
 						switch(menu){
 
-							case 1: //Cambiar entre FM y AM
+							case 1: 
+								int opcion = v.cambiarEmisora();
+								System.out.println(controlador.cambiarSenal(opcion));
 								break;
 
 							case 2: //Avanzar el dial
@@ -47,7 +51,13 @@ public class main {
 								break;
 						}
 					}
+
+					controlador.encenderApagar();
+					if(controlador.comprobarEncendida()==false){
+						System.out.println("La radio se ha apagado");	
 					break;
+				}
+			}
 
 				case 2: //Salir
 					System.exit(0);
@@ -55,3 +65,5 @@ public class main {
 		}
 	}
 }
+		
+	
