@@ -64,7 +64,7 @@ class Vista{
 	 * 
 	 * @return entero de 530 a 1610 en intervalos de 10
 	 */
-	public int getAM(){
+	public float getAM(){
 		System.out.println("Ingrese una frecuencia AM (de 530 a 1610 en intervalos de 10): ");
 		while(true){
 			try{
@@ -117,5 +117,49 @@ class Vista{
 		}
 	}
 
+	/** 
+	 * es pura vanidad(?) para mostrar el tipo de frecuencia y la frecuencia cada vez que se repita el ciclo del menú inicial
+	 * algo así se me ocurre: 
+	 * Estación actual: 97.7 FM
+	 * 
+	 * @param c el objeto del que se van a sacar los datos (o se los pasamos de manera explicita?)
+	 */
+	public void mostrarEstado(/*????*/){
+		//TODO
+	}
+
+	/**
+	 * Método para mostrar los botones guardados
+	 * 
+	 * @param lista la lista de botones guardados
+	 * @return el indice donde se encuentra la eleccion del usuario
+	 */
+	public int mostrarGuardados(float[] lista){
+		System.out.println(); 
+		for(int i = 0; i<lista.length ; i++){
+			if(lista[i] > 80){
+				System.out.println((i+1) + ". " + lista[i] + ((lista[i] > 108)?" AM":" FM")); 
+			} else{
+				System.out.println((i+1) + ". Vacio"); 
+			}
+				
+		}
+		while(true){
+			try{
+				while(true){
+					int num = scan.nextInt();
+					if(num > 0 && num <= lista.length){
+						return num-1;
+						
+					} else{
+						System.out.println("Ingrese una opcion valida");
+					}
+				}
+			} catch(Exception e){
+				System.out.println("Ingrese un numero");
+				scan.next();
+			}
+		}
+	}
 
 }
