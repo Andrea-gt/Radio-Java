@@ -98,9 +98,9 @@ class Vista{
 		while(true){
 			try{
 				while(true){
-					int num = scan.nextInt();
+					float num = scan.nextFloat();
 					if(num >= 87.9 && num <= 107.9){
-						if(num % 0.2 == 0.1){
+						if(num % 0.2 > 0.09 && num % 0.2 < 0.11){
 							return num;
 						}
 						else{

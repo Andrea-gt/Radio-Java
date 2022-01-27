@@ -13,8 +13,8 @@ public class main {
 		float AMactual;
 		float FMactual;
 		float[] emisorasGuardadas = new float[12];
-		int numBoton;
-
+		int numBoton;		
+		
 		while(true){
 			switch(v.menuApagado()){
 
@@ -34,15 +34,13 @@ public class main {
 								break;
 
 							case 3: //Guardar emisora
-								//Por el momento se le pasa un array de prueba :) Despues ya le ponemos el emisorasGuardadas
-								v.mostrarGuardados(new float[]{(float)12.5, 800, 100, (float)310.7, 0, 0}); 
+								v.mostrarGuardados(new float[]{(float)12.5, 800, 100, (float)310.7, 0, 0}); //array de prueba :)
 								//Se pide en qué posicion guardar la emisora y se le pasa a un método que la asigne a la posicion seleccionada (?)
 								break;
 
-							case 4: //Seleccionar emisora
-								//Por el momento se le pasa un array de prueba :) Despues ya le ponemos el emisorasGuardadas
+							case 4: //Seleccionar emisora 
 								v.mostrarGuardados(new float[]{(float)12.5, 800, 100, (float)310.7, 0, 0}); 
-								//Se selecciona la emisora  y se pasa la posicion del array seleccionado a un método que asigne la emisora actual a la que se extraiga del array (?)
+								//Se selecciona la emisora  y se pasa la posicion del array seleccionado a un método que asigne la emisora actual a la que se saque del array (?)
 								break;
 
 							case 5: //Apagar
