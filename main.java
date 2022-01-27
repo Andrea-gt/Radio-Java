@@ -4,7 +4,7 @@ public class main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		controlador controlador = new controlador();
+		Controlador controlador = new Controlador();
 		Vista v = new Vista();
 		int menu = 0;
 
@@ -20,12 +20,14 @@ public class main {
 
 				case 1: //Encender
 					menu = 0;
+					controlador.encenderApagar();
+					if(controlador.comprobarEncendida()){
+						System.out.println("La radio ya se encuentra encendida");
+					}
 					while(menu != 5){
-								
-						controlador.encenderApagar();
-							if(controlador.comprobarEncendida()==true){
-								System.out.println("La radio ya se encuentra encendida");	
 						
+						v.mostrarEstado(controlador);
+
 						menu = v.menuEncendido();
 						switch(menu){
 
@@ -35,6 +37,23 @@ public class main {
 								break;
 
 							case 2: //Avanzar el dial
+								switch(v.getOpcionDial(controlador.getTipoSenal())){
+
+									case 1:
+										controlador.subirEmisora();
+										break;
+
+									case 2:
+										controlador.bajarEmisora();
+										break;
+
+									case 3:
+										if(controlador.getTipoSenal()){
+											controlador.setAM(v.getAM());
+										} else {
+											controlador.setFM(v.getFM());
+										}
+								}
 								break;
 
 							case 3: //Guardar emisora
@@ -48,16 +67,15 @@ public class main {
 								break;
 
 							case 5: //Apagar
+								controlador.encenderApagar();
+								if(controlador.comprobarEncendida()==false){
+									System.out.println("La radio se ha apagado");
+								}	
 								break;
+								
 						}
-					}
 
-					controlador.encenderApagar();
-					if(controlador.comprobarEncendida()==false){
-						System.out.println("La radio se ha apagado");	
-					break;
-				}
-			}
+				}	
 
 				case 2: //Salir
 					System.exit(0);

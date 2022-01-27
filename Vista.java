@@ -84,6 +84,7 @@ class Vista{
 			}
 		}
 	}
+
 	/**
 	 * Pide el ingreso de una frecuencia AM
 	 * 
@@ -149,8 +150,20 @@ class Vista{
 	 * 
 	 * @param c el objeto del que se van a sacar los datos (o se los pasamos de manera explicita?)
 	 */
-	public void mostrarEstado(/*????*/){
-		//TODO
+	public void mostrarEstado(Controlador c){
+		if(c.getTipoSenal()){
+			if(c.getAM() != 0){
+				System.out.println("Emisora actual :" + c.getAM() + " AM");
+			} else {
+				System.out.println("No hay ninguna emisora seleccionada por el momento");
+			}
+		} else {
+			if(c.getFM() != 0){
+				System.out.println("Emisora actual :" + c.getFM() + " FM");
+			} else {
+				System.out.println("No hay ninguna emisora seleccionada por el momento");
+			}
+		}
 	}
 
 	/**
@@ -176,6 +189,36 @@ class Vista{
 					if(num > 0 && num <= lista.length){
 						return num-1;
 						
+					} else{
+						System.out.println("Ingrese una opcion valida");
+					}
+				}
+			} catch(Exception e){
+				System.out.println("Ingrese un numero");
+				scan.next();
+			}
+		}
+	}
+
+	/**
+	 * Para cambiar el tipo de emisora
+	 * 
+	 * @param cond si es AM (true) o FM (false)
+	 * @return entero entre 1 y 3
+	 */
+	public int getOpcionDial(boolean cond){
+
+		System.out.println("Selecione una opcion (" + ((cond)?"AM)":"FM)"));
+		System.out.println("1. Subir Dial");
+		System.out.println("2. Bajar Dial");
+		System.out.println("3. Ingresar frecuencia manualmente");
+
+		while(true){
+			try{
+				while(true){
+					int num = scan.nextInt();
+					if(num > 0 && num < 4){
+						return num;
 					} else{
 						System.out.println("Ingrese una opcion valida");
 					}
