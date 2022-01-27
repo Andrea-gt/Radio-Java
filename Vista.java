@@ -182,6 +182,7 @@ class Vista{
 			}
 				
 		}
+
 		while(true){
 			try{
 				while(true){
@@ -230,4 +231,22 @@ class Vista{
 		}
 	}
 
+	public int guardardadoDeEmisora(){
+		System.out.println("Porfavor seleccione un espacio para almacenar la emisora");
+		while(true){
+			try{
+				while(true){
+					int num = scan.nextInt();
+					if(num > 0 && num < 13){
+						return num-1;
+					} else{
+						System.out.println("Ingrese una opcion valida");
+					}
+				}
+			} catch(Exception e){
+				System.out.println("Ingrese un numero");
+				scan.next();
+			}
+		}
+	}
 }

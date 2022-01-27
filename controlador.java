@@ -1,4 +1,3 @@
-
 public class Controlador implements Radio  {
     private boolean encendido = false;// Determina el estado de la radio, true (encendido) y false (apagado). 
     private boolean tipoSenal; // Determina el estado de la radio, true (AM) y false (FM). 
@@ -7,6 +6,9 @@ public class Controlador implements Radio  {
     private float[] emisorasGuardadas = new float[12];
     private int numBoton;
     
+    public float[] getEmisorasGuardadas() {
+        return emisorasGuardadas;
+    }
     @Override
     public boolean encenderApagar() {
             this.encendido = !this.encendido;
@@ -14,9 +16,23 @@ public class Controlador implements Radio  {
     }
     @Override
     public String guardarEmisoraActual(int numBoton) {
-        // TODO Auto-generated method stub
-        return null;
+    if(emisorasGuardadas[numBoton] == 0){
+        if(tipoSenal==true){
+            emisorasGuardadas[numBoton] = AMactual;
+            return ("Se guardo la emisora " + this.AMactual + "AM");
+        }
+
+        if(tipoSenal==false){
+            emisorasGuardadas[numBoton] = FMactual;
+            return ("Se guardo la emisora " + this.FMactual + "FM");
+        }
     }
+    else{
+        return "Ya hay una emisora almacenada aqui";
+    }
+    return "";
+    }
+    
     @Override
     public String seleccionarEmisoraGuardada(int numBoton) {
         // TODO Auto-generated method stub
