@@ -249,4 +249,23 @@ class Vista{
 			}
 		}
 	}
+
+	public int escogerEmisora(){
+		System.out.println("Porfavor seleccione una de las emisoras almacenadas");
+		while(true){
+			try{
+				while(true){
+					int num = scan.nextInt();
+					if(num > 0 && num < 13){
+						return num-1;
+					} else{
+						System.out.println("Ingrese una opcion valida");
+					}
+				}
+			} catch(Exception e){
+				System.out.println("Ingrese un numero");
+				scan.next();
+			}
+		}
+	}
 }

@@ -57,7 +57,8 @@ public class main {
 
 							case 4: //Seleccionar emisora 
 								v.mostrarGuardados(controlador.getEmisorasGuardadas()); 
-								//Se selecciona la emisora  y se pasa la posicion del array seleccionado a un método que asigne la emisora actual a la que se saque del array (?)
+								int opcionEmisora = v.escogerEmisora();
+								System.out.println(controlador.seleccionarEmisoraGuardada(opcionEmisora));
 								break;
 
 							case 5: //Apagar
