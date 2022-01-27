@@ -1,4 +1,4 @@
-import java.io.Scanner;
+import java.util.Scanner;
 
 class Vista{
 	private Scanner scan = new Scanner(System.in);
@@ -9,7 +9,7 @@ class Vista{
 	 * @return la opcion del usuario
 	 */
 	public int menuApagado(){
-		System.out.println("\nLa radio está apagada. Ingrese una opcion:");
+		System.out.println("\nLa radio esta apagada. Ingrese una opcion:");
 		System.out.println("1. Prender el radio");
 		System.out.println("2. Salir");
 		while(true){
@@ -59,6 +59,11 @@ class Vista{
 		}
 	}
 
+	/**
+	 * Pide el ingreso de una frecuencia AM
+	 * 
+	 * @return entero de 530 a 1610 en intervalos de 10
+	 */
 	public int getAM(){
 		System.out.println("Ingrese una frecuencia AM (de 530 a 1610 en intervalos de 10): ");
 		while(true){
@@ -83,6 +88,11 @@ class Vista{
 		}
 	}
 
+	/**
+	 * Pide el ingreso de una frecuencia FM
+	 * 
+	 * @return numero de 87.9 a 107.9 en intervalos de 0.2
+	 */
 	public float getFM(){
 		System.out.println("Ingrese una frecuencia FM (de 87.9 a 107.9 en intervalos de 0.2): ");
 		while(true){
