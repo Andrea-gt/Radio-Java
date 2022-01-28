@@ -60,8 +60,15 @@ public class Controlador implements Radio  {
      */
     @Override
     public String seleccionarEmisoraGuardada(int numBoton) {
-        // TODO Auto-generated method stub
-        return null;
+        if(emisorasGuardadas[numBoton] > 108){
+            cambiarSenal(1);
+            AMactual = emisorasGuardadas[numBoton];
+            return "";
+        } else {
+            cambiarSenal(2);
+            FMactual = emisorasGuardadas[numBoton];
+            return "";
+        }
     }
 
     /**
@@ -110,7 +117,7 @@ public class Controlador implements Radio  {
             }
         } else { // Si es FM
             FMactual += 0.2;
-            if(FMactual > 107.9){
+            if(getFM() > 107.9 || getFM() < 87.8){
                 FMactual = (float)87.9;
             }
         } 
@@ -131,7 +138,7 @@ public class Controlador implements Radio  {
             }
         } else { // Si es FM
             FMactual -= 0.2;
-            if(FMactual < 87.9){
+            if(getFM() < 87.9){
                 FMactual = (float)107.9;
             }
         } 
