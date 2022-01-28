@@ -1,9 +1,12 @@
 public class main {
 
 	/**
+	 * Método main
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
 		Controlador controlador = new Controlador();
 		Vista v = new Vista();
 		int menu = 0;
@@ -41,6 +44,8 @@ public class main {
 										break;
 
 									case 3:
+
+										//Se revisa si la radio está en FM o AM para poder llamar el método correcto
 										if(controlador.getTipoSenal()){
 											controlador.setAM(v.getAM());
 										} else {

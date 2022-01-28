@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class Vista{
+
 	private Scanner scan = new Scanner(System.in);
 
 	/**
@@ -96,8 +97,8 @@ class Vista{
 			try{
 				while(true){
 					int num = scan.nextInt();
-					if(num > 509 && num < 1611){
-						if(num % 10 == 0){
+					if(num > 509 && num < 1611){ //Se revisa que esté dentro del intervalo indicado
+						if(num % 10 == 0){ //Revisa si la entrada es valida
 							return num;
 						}
 						else{
@@ -125,8 +126,8 @@ class Vista{
 			try{
 				while(true){
 					float num = scan.nextFloat();
-					if(num >= 87.9 && num <= 107.9){
-						if(num % 0.2 > 0.09 && num % 0.2 < 0.11){
+					if(num >= 87.9 && num <= 107.9){ //Se revisa que esté dentro del intervalo indicado
+						if(num % 0.2 > 0.09 && num % 0.2 < 0.11){ //Revisa si la entrada es valida
 							return num;
 						}
 						else{
@@ -153,7 +154,7 @@ class Vista{
 	public void mostrarEstado(Controlador c){
 		if(c.getTipoSenal()){
 			if(c.getAM() != 0){
-				System.out.println("Emisora actual :" + c.getAM() + " AM");
+				System.out.println("\nEmisora actual: " + c.getAM() + " AM");
 			} else {
 				System.out.println("No hay ninguna emisora seleccionada por el momento");
 			}
@@ -170,34 +171,15 @@ class Vista{
 	 * Método para mostrar los botones guardados
 	 * 
 	 * @param lista la lista de botones guardados
-	 * @return el indice donde se encuentra la eleccion del usuario
 	 */
-	public int mostrarGuardados(float[] lista){
+	public void mostrarGuardados(float[] lista){
 		System.out.println(); 
 		for(int i = 0; i<lista.length ; i++){
 			if(lista[i] > 80){
 				System.out.println((i+1) + ". " + lista[i] + ((lista[i] > 108)?" AM":" FM")); 
 			} else{
 				System.out.println((i+1) + ". Vacio"); 
-			}
-				
-		}
-
-		while(true){
-			try{
-				while(true){
-					int num = scan.nextInt();
-					if(num > 0 && num <= lista.length){
-						return num-1;
-						
-					} else{
-						System.out.println("Ingrese una opcion valida");
-					}
-				}
-			} catch(Exception e){
-				System.out.println("Ingrese un numero");
-				scan.next();
-			}
+			}		
 		}
 	}
 
@@ -231,8 +213,13 @@ class Vista{
 		}
 	}
 
+	/**
+	 * Pide una entrada de 1-12 y la devuelve respecto a la posicion en el array
+	 * 
+	 * @return la entrada seleccionada
+	 */
 	public int guardardadoDeEmisora(){
-		System.out.println("Porfavor seleccione un espacio para almacenar la emisora");
+		System.out.println("Porfavor seleccione un espacio: ");
 		while(true){
 			try{
 				while(true){

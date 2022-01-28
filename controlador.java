@@ -6,14 +6,32 @@ public class Controlador implements Radio  {
     private float[] emisorasGuardadas = new float[12];
     private int numBoton;
     
+    /**
+     * Devuelve la lista con las emisoras guardadas
+     * 
+     * @return las emisoras guardadas
+     */
     public float[] getEmisorasGuardadas() {
         return emisorasGuardadas;
     }
+
+    /**
+     * Cambia la radio entre encendido y apagado
+     * 
+     * @return el estado del radio
+     */
     @Override
     public boolean encenderApagar() {
             this.encendido = !this.encendido;
             return this.encendido;
     }
+
+    /**
+     * Guarda la emisora actual en el boton seleccionado
+     * 
+     * @param numBoton el boton donde se guardará la emisora
+     * @return string describiendo la operacion
+     */
     @Override
     public String guardarEmisoraActual(int numBoton) {
     if(emisorasGuardadas[numBoton] == 0){
@@ -33,11 +51,24 @@ public class Controlador implements Radio  {
     return "";
     }
     
+    /**
+     * Método para seleccionar una emisora guardada
+     * 
+     * @param numBoton el numero de boton seleccionado
+     * @return String describiendo la operacion realizada
+     */
     @Override
     public String seleccionarEmisoraGuardada(int numBoton) {
         // TODO Auto-generated method stub
         return null;
     }
+
+    /**
+     * Cambia la señal entre AM y FM
+     * 
+     * @param opcion 1 para AM, 2 para FM
+     * @return String indicando la operacion hecha
+     */
     @Override
     public String cambiarSenal(int opcion) {
         if(opcion==1) {
@@ -63,6 +94,11 @@ public class Controlador implements Radio  {
         }
         return "";
     }
+
+    /**
+     * Dependiendo de la señal actual, aumenta la frecuencia por el intervalo indicado
+     * 
+     */
     @Override
     public void subirEmisora() {
         if(tipoSenal){ // Si es AM
@@ -79,6 +115,11 @@ public class Controlador implements Radio  {
         } 
         
     }
+
+    /**
+     * Dependiendo de la señal actual, reduce la frecuencia por el intervalo indicado
+     * 
+     */
     @Override
     public void bajarEmisora() {
         if(tipoSenal){ // Si es AM
@@ -95,12 +136,25 @@ public class Controlador implements Radio  {
         } 
     }
 
+     /**
+     * Devuelve la emisora actual
+     * 
+     * @return la emisora actual
+     */
     @Override
     public float getEmisoraActual() {
-        // TODO Auto-generated method stub
-        return 0;
+        if(tipoSenal){
+            return AMactual;
+        } else {
+            return FMactual;
+        }
     }
     
+    /**
+     * Verifica si la radio está encendida
+     * 
+     * @return true = sí, false = no
+     */
     @Override
     public boolean comprobarEncendida() {
         if(this.encendido == !true) {
@@ -109,25 +163,50 @@ public class Controlador implements Radio  {
         return true;
     }
 
+    /**
+     * Getter del tipo de señal actual
+     * 
+     * @return true para AM, false para FM
+     */
     public boolean getTipoSenal() {
         return tipoSenal;
     }
 
+    /**
+     * Setter para la frecuencia AM
+     * 
+     * @param num la frecuencia a utilizar
+     */
     public void setAM(float num){
         AMactual = num;
     }
 
+    /**
+     * Setter para la frecuencia FM
+     * 
+     * @param num la frecuencia a utilizar
+     */
     public void setFM(float num){
         FMactual = num;
     }
 
+    /**
+     * Getter de la estacion AM actual
+     * 
+     * @return float con la estación AM
+     */
     public float getAM(){
         return AMactual;
     }
 
+    /**
+     * Getter de la estacion FM actual
+     * 
+     * @return float con la estación FM
+     */
     public float getFM(){
         return FMactual;
     }
     
     
-    }
+}
