@@ -1,4 +1,5 @@
 public class Controlador implements Radio  {
+    
     private boolean encendido = false;// Determina el estado de la radio, true (encendido) y false (apagado). 
     private boolean tipoSenal; // Determina el estado de la radio, true (AM) y false (FM). 
     private float AMactual = 530;
