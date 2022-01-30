@@ -1,3 +1,13 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * Seccion 20
+ * Hoja de Trabajo 1
+ * Fecha de entrega: 30-01-2022
+ * 
+ * Adrian Ricardo Flores Trujillo 21500
+ * Andrea Ximena Ramirez Recinos 21874
+ */
 public class Controlador implements Radio  {
     
     private boolean encendido = false;// Determina el estado de la radio, true (encendido) y false (apagado). 
@@ -78,8 +88,8 @@ public class Controlador implements Radio  {
      * @return String indicando la operacion hecha
      */
     @Override
-    public String cambiarSenal(int opcion) {
-        if(opcion==1) {
+    public String cambiarSenal(boolean opcion) {
+        if(opcion==true) {
             if(this.tipoSenal) {
                 return("Ya se encuentra en AM");
             }
@@ -90,7 +100,7 @@ public class Controlador implements Radio  {
             }
         }
 
-        if(opcion==2) {
+        if(opcion==false) {
             if(!this.tipoSenal) {
                 return("Ya se encuentra en FM");
             }

@@ -1,3 +1,13 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * Seccion 20
+ * Hoja de Trabajo 1
+ * Fecha de entrega: 30-01-2022
+ * 
+ * Adrian Ricardo Flores Trujillo 21500
+ * Andrea Ximena Ramirez Recinos 21874
+ */
 import java.util.Scanner;
 
 class Vista{
@@ -64,7 +74,7 @@ class Vista{
 	 * Para cambiar el tipo de emisora
 	 * @return entero entre 1 y 2
 	 */
-	public int cambiarEmisora(){
+	public boolean cambiarEmisora(){
 		System.out.println("Selecione una opcion");
 		System.out.println("1. Cambiar a AM");
 		System.out.println("2. Cambiar a FM");
@@ -74,7 +84,12 @@ class Vista{
 				while(true){
 					int num = scan.nextInt();
 					if(num > 0 && num < 3){
-						return num;
+						if(num==1){
+							return true;
+						}
+						if(num == 2){
+							return false;
+						}
 					} else{
 						System.out.println("Ingrese una opcion valida");
 					}

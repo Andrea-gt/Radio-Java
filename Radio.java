@@ -1,4 +1,13 @@
-
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * Seccion 20
+ * Hoja de Trabajo 1
+ * Fecha de entrega: 30-01-2022
+ * 
+ * Adrian Ricardo Flores Trujillo 21500
+ * Andrea Ximena Ramirez Recinos 21874
+ */
 public interface Radio {
 
 	/**
@@ -30,7 +39,7 @@ public interface Radio {
      * @param opcion 1 para AM, 2 para FM
      * @return String indicando la operacion hecha
      */
-	String cambiarSenal(int opcion);
+	String cambiarSenal(boolean opcion);
 
 	/**
      * Dependiendo de la señal actual, aumenta la frecuencia por el intervalo indicado

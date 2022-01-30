@@ -1,5 +1,14 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * Seccion 20
+ * Hoja de Trabajo 1
+ * Fecha de entrega: 30-01-2022
+ * 
+ * Adrian Ricardo Flores Trujillo 21500
+ * Andrea Ximena Ramirez Recinos 21874
+ */
 public class main {
-
 	/**
 	 * Método main
 	 * 
@@ -28,7 +37,7 @@ public class main {
 						switch(menu){
 
 							case 1: 
-								int opcion = v.cambiarEmisora();
+								boolean opcion = v.cambiarEmisora();
 								System.out.println(controlador.cambiarSenal(opcion));
 								break;
 
@@ -83,6 +92,3 @@ public class main {
 		}
 	}
 }
-	
-		
-	
