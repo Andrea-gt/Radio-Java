@@ -166,35 +166,12 @@ class Vista{
 	 * 
 	 * @param c el objeto del que se van a sacar los datos (o se los pasamos de manera explicita?)
 	 */
-	public void mostrarEstado(Controlador c){
-		if(c.getTipoSenal()){
-			if(c.getAM() != 0){
-				System.out.println("\nEmisora actual: " + c.getAM() + " AM");
-			} else {
-				System.out.println("No hay ninguna emisora seleccionada por el momento");
-			}
-		} else {
-			if(c.getFM() != 0){
-				System.out.println("Emisora actual :" + c.getFM() + " FM");
-			} else {
-				System.out.println("No hay ninguna emisora seleccionada por el momento");
-			}
+	public void mostrarEstado(float frec){
+		if(frec != 0){
+			System.out.println("\nEmisora Actual: " + frec + ((frec>108)?"AM":"FM"));
 		}
-	}
-
-	/**
-	 * Método para mostrar los botones guardados
-	 * 
-	 * @param lista la lista de botones guardados
-	 */
-	public void mostrarGuardados(float[] lista){
-		System.out.println(); 
-		for(int i = 0; i<lista.length ; i++){
-			if(lista[i] > 80){
-				System.out.println((i+1) + ". " + lista[i] + ((lista[i] > 108)?" AM":" FM")); 
-			} else{
-				System.out.println((i+1) + ". Vacio"); 
-			}		
+		else{
+			System.out.println("No hay ninguna emisora seleccionada por el momento");
 		}
 	}
 
@@ -234,7 +211,7 @@ class Vista{
 	 * @return la entrada seleccionada
 	 */
 	public int guardardadoDeEmisora(){
-		System.out.println("Porfavor seleccione un espacio: ");
+		System.out.println("Porfavor seleccione un espacio del 1 al 12: ");
 		while(true){
 			try{
 				while(true){

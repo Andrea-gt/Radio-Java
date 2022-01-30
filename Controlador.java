@@ -32,9 +32,8 @@ public class Controlador implements Radio  {
      * @return el estado del radio
      */
     @Override
-    public boolean encenderApagar() {
+    public void encenderApagar() {
             this.encendido = !this.encendido;
-            return this.encendido;
     }
 
     /**
@@ -70,6 +69,7 @@ public class Controlador implements Radio  {
      */
     @Override
     public String seleccionarEmisoraGuardada(int numBoton) {
+ 
         if(emisorasGuardadas[numBoton] > 108){
             cambiarSenal(true);
             AMactual = emisorasGuardadas[numBoton];
@@ -175,6 +175,15 @@ public class Controlador implements Radio  {
      */
     @Override
     public boolean comprobarEncendida() {
+        System.out.println("Emisoras Almacenadas: "); 
+		for(int i = 0; i<emisorasGuardadas.length ; i++){
+			if(emisorasGuardadas[i] > 80){
+				System.out.println((i+1) + ". " + emisorasGuardadas[i] + ((emisorasGuardadas[i] > 108)?" AM":" FM")); 
+			} else{
+				System.out.println((i+1) + ". Vacio"); 
+			}		
+		}
+        
         if(this.encendido == !true) {
             return false;
         }
@@ -225,6 +234,5 @@ public class Controlador implements Radio  {
     public float getFM(){
         return FMactual;
     }
-    
-    
+
 }

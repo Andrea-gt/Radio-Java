@@ -15,7 +15,7 @@ public interface Radio {
      * 
      * @return el estado del radio
      */
-	boolean encenderApagar();
+	void encenderApagar();
 
 	/**
      * Guarda la emisora actual en el boton seleccionado

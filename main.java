@@ -1,3 +1,5 @@
+import javax.management.ObjectName;
+
 /**
  * Universidad del Valle de Guatemala
  * Algoritmos y Estructura de Datos
@@ -26,12 +28,13 @@ public class main {
 				case 1: //Encender
 					menu = 0;
 					controlador.encenderApagar();
-					if(controlador.comprobarEncendida()){
-						System.out.println("La radio ya se encuentra encendida");
-					}
+					System.out.println("La radio ya se encuentra encendida");
+					controlador.comprobarEncendida();
+						
+					
 					while(menu != 5){
 						
-						v.mostrarEstado(controlador);
+						v.mostrarEstado(controlador.getEmisoraActual());
 
 						menu = v.menuEncendido();
 						switch(menu){
@@ -52,25 +55,17 @@ public class main {
 										controlador.bajarEmisora();
 										break;
 
-									case 3:
-
-										//Se revisa si la radio está en FM o AM para poder llamar el método correcto
-										if(controlador.getTipoSenal()){
-											controlador.setAM(v.getAM());
-										} else {
-											controlador.setFM(v.getFM());
-										}
 								}
 								break;
 
 							case 3: //Guardar emisora
-								v.mostrarGuardados(controlador.getEmisorasGuardadas()); 
+								controlador.getEmisoraActual();
 								int numBoton = v.guardardadoDeEmisora();
 								System.out.println(controlador.guardarEmisoraActual(numBoton));
 								break;
 
 							case 4: //Seleccionar emisora 
-								v.mostrarGuardados(controlador.getEmisorasGuardadas()); 
+								controlador.getEmisoraActual();
 								int opcionEmisora = v.escogerEmisora();
 								System.out.println(controlador.seleccionarEmisoraGuardada(opcionEmisora));
 								break;
@@ -85,7 +80,6 @@ public class main {
 						}
 
 				}	
-
 				case 2: //Salir
 					System.exit(0);
 			}
