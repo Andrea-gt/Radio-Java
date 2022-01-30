@@ -71,11 +71,11 @@ public class Controlador implements Radio  {
     @Override
     public String seleccionarEmisoraGuardada(int numBoton) {
         if(emisorasGuardadas[numBoton] > 108){
-            cambiarSenal(1);
+            cambiarSenal(true);
             AMactual = emisorasGuardadas[numBoton];
             return "";
         } else {
-            cambiarSenal(2);
+            cambiarSenal(false);
             FMactual = emisorasGuardadas[numBoton];
             return "";
         }
